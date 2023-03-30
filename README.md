@@ -5,7 +5,7 @@
     </h3>
 </a>
 # PG-Extension
-Extension i finished on May,2022 for pg
+i finished on May,2022 for pg
 
 Made a repo here so i dont forgot about updating .
 
