@@ -4,10 +4,10 @@
         <bold>Extension</bold>
     </h3>
 </a>
-# PG-Extension
-i finished on May,2022 for pg
 
-Made a repo here so i dont forgot about updating .
+PG-Extensiom i finished on May,2022 for pg
+
+Made a repo here so i dont forget about updating .
 
 -------------
 
