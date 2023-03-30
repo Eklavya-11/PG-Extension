@@ -28,4 +28,11 @@ Has a bunch of features, let state few:
      - New & modern buttons
      - Chat customizations (next version)
      
-<!-- add a video where VS is shown to show a little code & file names and then opening pg page to show the extension's use -->
+
+## Short Display (v1)
+**The whole file structure & short working of the extension:**
+
+
+https://user-images.githubusercontent.com/117552685/228984533-91faaf3d-19de-4d5f-9ffd-b38d0b9eddd0.mp4
+
+*FYI: This display is isolated to v1 and doesn't display v2*
