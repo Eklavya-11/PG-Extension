@@ -35,4 +35,4 @@ Has a bunch of features, let state few:
 
 https://user-images.githubusercontent.com/117552685/228984533-91faaf3d-19de-4d5f-9ffd-b38d0b9eddd0.mp4
 
-*FYI: This display is isolated to v1 and doesn't display v2*
+*FYI: This display is isolated to v1 and doesn't display next updates & version*
