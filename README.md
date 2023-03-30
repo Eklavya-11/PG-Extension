@@ -21,3 +21,5 @@ Has a bunch of features, let state few:
      - Implements command-palette 
      - New & modern buttons
      - Chat customizations (next version)
+     
+<!-- add a video where VS is shown to show a little code & file names and then opening pg page to show the extension's use -->
