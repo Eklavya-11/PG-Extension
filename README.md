@@ -1,11 +1,11 @@
 # PG-Extension
 Extension i finished on May,2022 for pg
 
-Made a repo so i dont forgot about publishing this work.
+Made a repo here so i dont forgot about publishing this work on chrome.
 
 -------------
 
-Current version adds these features:
+Has a bunch of features, let state few:
 
 + Pokemon location guide
      - Access any map's spawn list without the need of visiting it
