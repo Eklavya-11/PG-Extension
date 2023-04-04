@@ -7,7 +7,7 @@
 
 PG-Extension i finished on May,2022 for pg
 
-Made a repo here so i dont forget about updating .
+Made a repo here so i dont forget about updating . <br> `update: V2 in progress`
 
 -------------
 
