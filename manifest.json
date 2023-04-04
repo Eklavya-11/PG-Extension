@@ -2,15 +2,15 @@
     "manifest_version": 3,
     "name": "Pokemon Gods extension",
     "description": "This extension adds functionality such as custom hunting, shiny highlighting, map locations & pokemon list to pokemongods.com",
-    "version": "0.0.1",
+    "version": "2.0.1",
     "icons": {
-        "16": "logo/logo-16.png",
-        "48": "logo/logo-48.png",
-        "128": "logo/logo-128.png"
+        "16": "/assets/logo/logo-16.png",
+        "48": "/assets/logo/logo-48.png",
+        "128": "/assets/logo/logo-128.png"
     },
     "action": {
         "default_title": "Pokemon Gods extension",
-        "default_popup": "popup/popup.html"
+        "default_popup": "/interface/main.html"
     },
     "permissions": ["storage"],
     "background": {
@@ -18,10 +18,28 @@
     },
     "content_scripts": [
         {
-        "js": ["gameFunctions/jquery-2.2.3.min.js", "gameFunctions/jquery-ui.js", "gameFunctions/commandPalette.js" ,"foreground.js"],
-        "matches": ["https://pokemongods.com/game/explore","https://www.pokemongods.com/game/explore"]}, 
+        "js": ["/library/jquery/jquery-2.2.3.min.js", "/library/jquery/jquery-ui.js", "/js/gameFunctions/commandPalette.js" ,"/js/modules/explore.js"],
+        "matches": ["https://pokemongods.com/game/explore","https://www.pokemongods.com/game/explore"]},    
         {
-        "js": ["gameFunctions/jquery-2.2.3.min.js", "gameFunctions/jquery-ui.js", "team.js"],
-        "matches": ["https://pokemongods.com/game/monster", "https://www.pokemongods.com/game/monster"]}
-    ]
+        "js": ["/library/jquery/jquery-2.2.3.min.js", "/library/jquery/jquery-ui.js", "/js/modules/team.js"],
+        "matches": ["https://pokemongods.com/game/monster", "https://www.pokemongods.com/game/monster"]},
+        {
+        "js": ["/library/jquery/jquery-2.2.3.min.js", "/library/jquery/jquery-ui.js", "/js/modules/themes.js"],
+        "matches": ["https://pokemongods.com/*","https://www.pokemongods.com/*"]}
+    ],
+    "web_accessible_resources": [{
+        "resources": [
+            "/css/themes/BlackRedTheme.css",
+            "/css/themes/BlueTheme.css",
+            "/css/themes/CoffeeTheme.css",
+            "/css/themes/DarkTheme.css",
+            "/css/themes/GreenTheme.css",
+            "/css/themes/LightTheme.css",
+            "/css/themes/PinkTheme.css",
+            "/css/themes/PurpleTheme.css"
+        ],
+        "matches": ["https://pokemongods.com/*", "https://www.pokemongods.com/*"]
+    }]
+    
+      
 }
