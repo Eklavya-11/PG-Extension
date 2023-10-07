@@ -1,1 +1,227 @@
-sa
+body {
+	background-color: #F8F8F8;
+	/*background-image: url("");*/
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+	min-width: 250px;
+	min-height: auto;
+}
+
+.card-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+.card {
+	background-color: rgba(255, 255, 255, 0.4);
+	border: 3px solid transparent;
+	border-radius: 40px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	backdrop-filter: blur(20px);
+	width: 640px;
+	height: 400px;
+	overflow: hidden;
+	position: relative;
+	transform-style: preserve-3d;
+	animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+	0% {
+		transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+	}
+
+	50% {
+		transform: translate3d(0, -20px, 0) rotateX(10deg) rotateY(5deg);
+	}
+
+	100% {
+		transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg);
+	}
+}
+
+.card:hover {
+	animation: tilt 0.5s ease-in-out forwards;
+}
+
+@keyframes tilt {
+	0% {
+		transform: rotateX(0deg) rotateY(0deg);
+	}
+
+	100% {
+		transform: rotateX(10deg) rotateY(10deg);
+	}
+}
+
+.card:before {
+	content: '';
+	position: absolute;
+	top: -50px;
+	left: -50px;
+	right: -50px;
+	bottom: -50px;
+	background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.5), rgba(255, 72, 219, 0.5), rgba(255, 72, 219, 0.5), rgba(255, 255, 255, 0.5));
+	transform: rotate(-45deg);
+	z-index: -1;
+}
+
+.card-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.card-header h1 {
+	font-size: 24px;
+	margin: 0;
+}
+
+.card-header img {
+	width: 50px;
+	height: 50px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+.card-content {
+	padding: 20px;
+}
+
+.card-content p {
+	font-size: 16px;
+	margin: 0;
+}
+
+.card-footer {
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.card-footer button {
+	background-color: #FF48DB;
+	color: #FFFFFF;
+	border: none;
+	border-radius: 20px;
+	font-size: 16px;
+	padding: 10px 20px;
+	cursor: pointer;
+}
+
+.card-footer button:hover {
+	background-color: #F53291;
+}
+
+.card-footer button:focus {
+	outline: none;
+}
+
+.card-footer button:active {
+	transform: scale(0.95);
+}
+
+/* Bottom navigation */
+.bottom-nav {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 20px;
+	box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-nav ul {
+	display: flex;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.bottom-nav li {
+	margin: 0 10px;
+}
+
+.bottom-nav a {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-decoration: none;
+	color: #000;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	transition: all 0.3s ease;
+}
+
+.bottom-nav a:hover {
+	transform: translateY(-5px);
+}
+
+.bottom-nav a.active {
+	color: #FF48DB;
+}
+
+/* Checkbox css */
+.form-check-input[type="checkbox"]+.form-check-label {
+	position: relative;
+	cursor: pointer;
+	padding-left: 1px;
+	font-size: 10px;
+	color: #000;
+	text-transform: uppercase;
+}
+
+/* Hunting List Modal */
+.modal-backdrop { /* Fixes modal not clickable */
+    z-index: -1;
+}
+
+.modal-content {
+    background-color: #44475a;
+    color: #f8f8f2;
+    border: none;
+    border-radius: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.modal-header {
+    background-color: #282a36;
+    color: #f8f8f2;
+    border-bottom: none;
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+}
+
+.modal-body {
+    overflow-y: auto;
+    max-height: 500px;
+}
+
+.modal-footer {
+    background-color: #44475a;
+    border-top: none;
+    border-bottom-right-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+}
+
+#btnClearHuntList {
+    color: #ff5555;
+}
+
+#btnClearHuntList:hover {
+    color: #fff;
+    background-color: #ff5555;
+    border-color: #ff5555;
+}
