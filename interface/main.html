@@ -1,1 +1,89 @@
-df
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Pokemongod Extension</title>
+    <!-- CSS & JS only -->
+    <link rel="stylesheet" href="/library/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/interface/main.css">
+    <script type="text/javascript" src="/interface/main.css"></script>
+    <script src="/library/bootstrap/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="card-container" id="card-container">
+      <div class="card" id="card">
+        <div class="card-header" id="card-header">
+          <h1 id="welcome-msg">Welcome Trainer</h1>
+          <img src="/assets/profiles/redtrainer.jpeg" alt="Logo">
+        </div>
+        <div class="card-content" id="card-content">
+          <!-- start -->
+          <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+              <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="https://pokemongods.com/images/mws-logo.png" width="150px" heigh="50px">
+              </a>
+              <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li>
+                  <a href="#" class="nav-link px-2 text-white">Extension</a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link px-2 text-secondary">V2</a>
+                </li>
+              </ul>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="encounterBg" checked>
+                <label class="form-check-label" for="encounterBg"> Add spawn background </label>
+              </div>
+              <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                <input id="toHuntInput" type="search" class="form-control form-control-dark" placeholder="Pokemon Name to hunt" aria-label="Search">
+                <p id='AddedMessage'></p>
+              </form>
+              <div class="text-end">
+                <button id="btnHuntAdd" type="button" class="btn btn-outline-light me-2">Add</button>
+                <button id="btnHuntList" type="button" class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#huntListModal">View List</button>
+              </div>
+            </div>
+          </div>
+          </header>
+          <!-- Hunting List Modal -->
+          <div class="modal fade" id="huntListModal" tabindex="-1" aria-labelledby="huntListModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="huntListModalLabel">Hunting List</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="huntListModalBody">
+                  <ul id="huntList"></ul>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" id="btnClearHuntList">Clear List</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  end -->
+        </div>
+        <div class="card-footer" id="card-footer">
+          <nav class="bottom-nav">
+            <ul>
+              <li>
+                <a href="/interface/main.html" id="hunting-link">Hunting</a>
+              </li>
+              <li>
+                <a href="/interface/pages/themes.html" id="">Themes</a>
+              </li>
+              <li>
+                <a href="/interface/pages/team.html" id="team-link">Team</a>
+              </li>
+              <li>
+                <a href="#" id="team-link">Developer: Eklavya11</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
