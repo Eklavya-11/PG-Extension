@@ -1,13 +1,131 @@
+// This script gets injected into any opened page
+// whose URL matches the pattern defined in the manifest
+// (see "content_script" key).
+// Several foreground scripts can be declared
+// and injected into the same or different pages.
+
+// test section start
+// <input style="width:60px;" type="button" id="btnDisableVisual" value="On" class="mws-button green small btn-toggle-night">
+
 /*
-::::OTHER SYSTEMS::::
+const r1 = document.getElementById('divTip');
+const c1 = document.createElement('div');
+c1.classList.add('my-new-container');
+r1.replaceWith(c1);
+
+c1.innerHTML = `
+<button onclick="pvpRequest('eklavya11', 0);"> Battle</button>
+<button onclick="pvpRequest('eklavya11', 0);"> Battle</button>
+`
 */
+// end
+
+console.log(
+  "This prints to the console of the page (injected only if the page url matched)"
+);
+
+/* Saving username to display in interface */
+let username = document.querySelector("#navbarSupportedContent > ul.navbar-nav.ml-auto.mb-2.mb-lg-0.d-flex > li:nth-child(1) > a").innerHTML;
+chrome.storage.local.set({ "username": username }, function() {
+  console.log("Welcome to PL, " + username);
+});
+
+/* Command Palette */
+const containerToReplace = document.getElementById('divTip');
+
+const cmdPal = document.createElement('div');
+cmdPal.classList.add('my-new-container');
+
+containerToReplace.replaceWith(cmdPal);
+cmdPal.innerHTML = `
+<td style="width:160px;vertical-align: middle;text-align: right;">Show map players: </td>
+<input style="width:60px; background-color:#2196F3" type="button" id="btnShowUsers" value="On" class="mws-button green small btn-toggle-users">
+
+<td style="vertical-align: middle;text-align: right;">Chat: </td>
+<td><input style="width:60px; background-color:#2196F3" type="button" id="btnDisableChat" value="On" class="mws-button green small btn-toggle-chat"></td>
+
+<select id="command-palette">
+  <option value="none">None</option>
+  <option value="hideChat">Fix Battle screen</option>
+  <option value="fixScreen">Fix Frozen screen</option>
+  <option value="resetPosition">Reset Position</option>
+  <option value="update">More coming in v2</option>
+</select>
+<button id="perform-button">Perform</button>
+
+`
+// Add event listener to the perform-button element
+const performButton = document.getElementById('perform-button');
+performButton.addEventListener('click', executeOption);
+// css for cmdPal
+$('#command-palette').css({
+  'width': '25%',
+  'margin-right': '10px',
+  'display': 'inline-block',
+  'vertical-align': 'middle'
+});
+
+$('#perform-button').css({
+  'background-color': '#2196F3',
+  'color': '#fff',
+  'border': 'none',
+  'border-radius': '5px',
+  'padding': '5px 10px',
+  'font-size': '16px',
+  'cursor': 'pointer',
+  'width': '15%',
+  'display': 'inline-block',
+  'vertical-align': 'middle',
+  'transition': 'all 0.3s'
+});
+
+// Add floating animation on button hover
+$('#perform-button').hover(
+  function() {
+    $(this).css({
+      'margin-top': '-5px',
+      'box-shadow': '0px 0px 10px #ccc'
+    });
+  },
+  function() {
+    $(this).css({
+      'margin-top': '0',
+      'box-shadow': 'none'
+    });
+  }
+);
+
+// Add event listener to the perform-button element
+$('#perform-button').on('click', executeOption);
+
+// Add animations to the dropdown and button
+$('#command-palette').on("click", function () {
+  $(this).animate({ width: "250px" }, 300);
+});
+
+$('#command-palette').on("focusout", function () {
+  $(this).animate({ width: "100px" }, 300);
+});
+
+$('#perform-button').on("mouseover", function () {
+  $(this).animate({ backgroundColor: "#f9f9f9" }, 300);
+});
+
+$('#perform-button').on("mouseout", function () {
+  $(this).animate({ backgroundColor: "#2196F3" }, 300);
+});
+/* */
 
 /* Hunting System (Changes Encounter's styling for Shiny, custom hunting List) */
 var pokemonList;
+var spawnBg;
 
+chrome.storage.local.get('encounterBg', function(data) {
+  spawnBg = data.encounterBg;
+});
 chrome.storage.local.get('pokemonHuntList', function(data) {
   let pokemonHtml = data.pokemonHuntList;
-  const regex = /data-pokemon="(\w+)"/g; // we only need the pokemon name, not html tags
+  const regex = /data-pokemon="(\w+)"/g;
   pokemonList = [];
   let match;
   while ((match = regex.exec(pokemonHtml)) !== null) {
@@ -17,6 +135,8 @@ chrome.storage.local.get('pokemonHuntList', function(data) {
 });
 
 $('#mws-explore-encounter').bind("DOMSubtreeModified", function() {
+  //EncounterList _ add event handler coz there is "loading" msges too
+
   let foundPokemon = false;
   for (let i = 0; i < pokemonList.length; i++) {
     if ($(this).text().toLowerCase().indexOf(pokemonList[i]) > -1) {
@@ -26,30 +146,23 @@ $('#mws-explore-encounter').bind("DOMSubtreeModified", function() {
   }
   if (foundPokemon) {
     $(this).css('color', '#7DF9FF');
+    $(this).css('background-image', 'url("Custom Next version") ,url("https://pokemongods.com/images/bubble_encounter_right.png")');
     document.getElementById("btnBattle").style.backgroundColor = "blue";
+    new Audio('https://www.pokemongods.com/audio/hit.mp3').play();
+  } else if ($(this).text().toLowerCase().indexOf("shiny") > -1) {
+    $(this).css('color', ' #ff80ff');
+    $(this).css('background-image', 'url("https://images-ext-2.discordapp.net/external/UzPrJ70-5Gb1ozflWSPDVbG4SyoEmzP87-Fln-qATqQ/https/i.ibb.co/L92GWvQ/output-onlinegiftools.gif") ,url("https://pokemongods.com/images/bubble_encounter_right.png")');
+    document.getElementById("btnBattle").style.backgroundColor = "magenta";
     new Audio('https://www.pokemongods.com/audio/hit.mp3').play();
   } else {
     $(this).css('color', '#ffffff');
-  }
-});
-
-$('#mws-explore-encounter').bind("DOMSubtreeModified",function(){ // Shiny
-  if ($(this).text().toLowerCase().indexOf("shiny") > -1)
-  {
-        $(this).css('color', ' #ff80ff');
-        document.getElementById("btnBattle").style.backgroundColor = "magenta";
-      new Audio('https://www.pokemongods.com/audio/hit.mp3').play();
-  }
-  else
-  {
-              $(this).css('color', '#ffffff');
-
+    $(this).css('background-image', 'url("https://pokemongods.com/images/bubble_encounter_right.png")');
   }
 });
 
 /* Map Location System */
-let mapCode_data = ["None", "Grassy Patch", "Bluegum Town", "Route 1", "Bluegum Caves", "Route 2", "Darlinghurst Town", "Darlinghurst Ranch", "Route 3", "Route 3 Secret Grotto", "Route 4", "Newpine Town", "Route 5", "Grayview Cave", "Grayview Cave Secret Grotto", "Oldpine Town", "Oldpine Jailfield", "Diglett Run Cave", "South Grayview Cave", "Route 6", "Eastbourne Shore", "West Eastbourne Farmlands", "Northwest Eastbourne Farmlands", "East Eastbourne Farmlands", "Grand Garden Maze", "Route 7", "Sunrock Desert A", "Sunrock Desert B", "Sunrock Desert C", "Sunrock Desert D", "Sunrock Desert E", "Route 8", "Route 8 Secret Grotto", "Route 9", "Route 10", "Route 11", "Safari Zone 1", "Safari Zone 2", "Safari Zone 3", "Frost Cave", "Route 12", "Dorocoast Town Dock", "Shipwreck Sands", "SeaFairy Forest", "Seafloor Cave", "Blackfell Island Forest", "Blackfell Island Graveyard", "Blackfell Caverns", "Blackfell Caverns F2", "Blackfell Caverns F3", "Blackfell Caverns F4", "Blackfell Caverns Secret Grotto", "Blackfell Caverns F1-A", "Route 15", "Route 16", "Sand Temple", "Route 13", "Route 14", "Route 14 Secret Grotto", "Route 17", "Route 18", "Route 18 Secret Grotto", "Route 19", "Undersea Cave", "North Grayview Cave", "Trail to Onderblade", "Onderblade Mines", "Willowsteen Forest", "Bluegum Underground", "Bluegum Depths", "Sorcerer's Castle Grounds", "Grayview City Outskirts", "Agent Ruins", "Ashfall Forest", "Route 200", "Route 201", "Honeybun Farm", "Sandmarsh Rainforest", "Sandmarsh Pond", "Honeybun Meadow", "Dorocoast Lava Chamber", "Sunrock Fields A1", "Sunrock Fields A2", "Sunrock Fields A3", "Sunrock Fields B1", "Sunrock Fields B2", "Sunrock Fields B3", "Sunrock Fields C2", "Sunrock Fields C3", "Sunrock Fields E2", "Twin River Island", "Sandmarsh Swamp", "East Twin River Peaks", "West Twin River Peaks", "Deserted Island", "Deserted Shore" ];
-let location_data = {
+mapCode_data = ["None", "Grassy Patch", "Bluegum Town", "Route 1", "Bluegum Caves", "Route 2", "Darlinghurst Town", "Darlinghurst Ranch", "Route 3", "Route 3 Secret Grotto", "Route 4", "Newpine Town", "Route 5", "Grayview Cave", "Grayview Cave Secret Grotto", "Oldpine Town", "Oldpine Jailfield", "Diglett Run Cave", "South Grayview Cave", "Route 6", "Eastbourne Shore", "West Eastbourne Farmlands", "Northwest Eastbourne Farmlands", "East Eastbourne Farmlands", "Grand Garden Maze", "Route 7", "Sunrock Desert A", "Sunrock Desert B", "Sunrock Desert C", "Sunrock Desert D", "Sunrock Desert E", "Route 8", "Route 8 Secret Grotto", "Route 9", "Route 10", "Route 11", "Safari Zone 1", "Safari Zone 2", "Safari Zone 3", "Frost Cave", "Route 12", "Dorocoast Town Dock", "Shipwreck Sands", "SeaFairy Forest", "Seafloor Cave", "Blackfell Island Forest", "Blackfell Island Graveyard", "Blackfell Caverns", "Blackfell Caverns F2", "Blackfell Caverns F3", "Blackfell Caverns F4", "Blackfell Caverns Secret Grotto", "Blackfell Caverns F1-A", "Route 15", "Route 16", "Sand Temple", "Route 13", "Route 14", "Route 14 Secret Grotto", "Route 17", "Route 18", "Route 18 Secret Grotto", "Route 19", "Undersea Cave", "North Grayview Cave", "Trail to Onderblade", "Onderblade Mines", "Willowsteen Forest", "Bluegum Underground", "Bluegum Depths", "Sorcerer's Castle Grounds", "Grayview City Outskirts", "Agent Ruins", "Ashfall Forest", "Route 200", "Route 201", "Honeybun Farm", "Sandmarsh Rainforest", "Sandmarsh Pond", "Honeybun Meadow", "Dorocoast Lava Chamber", "Sunrock Fields A1", "Sunrock Fields A2", "Sunrock Fields A3", "Sunrock Fields B1", "Sunrock Fields B2", "Sunrock Fields B3", "Sunrock Fields C2", "Sunrock Fields C3", "Sunrock Fields E2", "Twin River Island", "Sandmarsh Swamp", "East Twin River Peaks", "West Twin River Peaks", "Deserted Island", "Deserted Shore" ];
+location_data = {
   "None": "Select a map",
   "Grassy Patch" : "Caterpie (Common)", 
 	"Bluegum Town" : "Cherubi (Common), Scyther (Rare), Cubone (Uncommon), Shinx (Uncommon), Sentret (Common), Starly (Common), Abra (Common), Meditite (Rare), Poochyena (Common), Snubbull (Common), Wurmple (Common), Jigglypuff (Common)", 
@@ -181,6 +294,21 @@ map_select.addEventListener("change", function () {
   var selectedOption = this.options[map_select.selectedIndex];
   location_pokemon(selectedOption.value);
 });
+// Add animations to the dropdown and result
+$("#map_select").on("click", function () {
+  $(this).animate({ width: "250px" }, 300);
+});
 
-// Note for skids
-console.log("Not the whole src and css ignored");
+$("#map_select").on("focusout", function () {
+  $(this).animate({ width: "100px" }, 300);
+});
+
+$("#Found_data").css("display", "inline-block");
+
+$("#Found_data").on("mouseover", function () {
+  $(this).animate({ backgroundColor: "#f9f9f9" }, 300);
+});
+
+$("#Found_data").on("mouseout", function () {
+  $(this).animate({ backgroundColor: "#ffffff" }, 300);
+});
