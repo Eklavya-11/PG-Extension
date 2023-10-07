@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "Pokemon Gods extension",
     "description": "This extension adds functionality such as custom hunting, shiny highlighting, map locations & pokemon list to pokemongods.com",
-    "version": "2.0.1",
+    "version": "3.1.5",
     "icons": {
         "16": "/assets/logo/logo-16.png",
         "48": "/assets/logo/logo-48.png",
