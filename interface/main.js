@@ -1,9 +1,10 @@
 // Giving the username
 chrome.storage.local.get('username', function (data) {
+  console.log("hahahah");
   document.getElementById('welcome-msg').textContent = `Welcome ${data.username}!`;
 });
 
-
+console.log("interface main.js");
 /* ---------------- */
 // global variables
 var myModal;
@@ -29,6 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
   chrome.storage.local.get('pokemonHuntList', function (result) {
     if (result.pokemonHuntList) {
       huntList.innerHTML = result.pokemonHuntList;
+    }else {
+      huntList.innerHTML = "Empty List";
     }
   });
 
