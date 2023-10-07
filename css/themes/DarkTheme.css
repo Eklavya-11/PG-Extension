@@ -1,1 +1,777 @@
-dd
+html {
+    --background-primary: #282a36;
+    --background-secondary: #21222C;
+    --background-tertiary: #191A21;
+    --current-line: #44475a;
+    --selection: #44475a;
+    --foreground: #f8f8f2;
+    --comment: #6272a4;
+    --cyan: #8be9fd;
+    --green: #50fa7b;
+    --orange: #ffb86c;
+    --pink: #ff79c6;
+    --purple: #bd93f9;
+    --red: #ff5555;
+    --yellow: #f1fa8c;
+}
+
+/* the 1/2/3/4 button on pages */
+.btn-sm, .mws-button.small, .mws-button, .paginate_button, .btn-group-sm > .btn, .btn-group-sm > .mws-button, .btn-group-sm > .paginate_button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    border-radius: 0.2rem;
+    color: #fff;
+}
+ 
+.mws-form-message.info {
+    background-color: green;
+    border: 1px solid blue;
+    color: #fff;
+}
+/* The boxes in the pages - adding red outline but looks flashy on all explore page
+.mws-panel-body {
+  box-shadow: 0 0 20px #ff4136;
+}
+*/
+
+/* The comments on profile - used dynamic css coz normal didnot work + !important to caste out default*/
+div[style="background-color:#EEE;padding-left:5px;margin-left:50px;border-left:1px solid #999;"] {
+  background-color: #000 !important;
+  padding-left: 5px !important;
+  margin-left: 50px !important;
+  border-left: 1px solid #fff !important;
+}
+
+/* Trade page numbers */
+.trade-title {
+    color: #fff;
+    font-weight: bold;
+}
+
+/* pokenames - trade pg & pokemon page*/
+a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* text:"Note"&"search" - trade pg & team page & profile & guild. etc whereas:bold txt used*/
+b, strong {
+    font-weight: bolder;
+    color: #fff;
+}
+
+/* will change every text on each page - trade,etc || removing coz unsafe code
+div:not(:empty) {
+  color: red;
+}
+*/
+
+/* Monster page poke name & info - poke page */
+thead, tbody, tfoot, tr, td, th {
+    border-color: inherit;
+    border-style: solid;
+    color: #fff;
+    border-width: 0;
+}
+
+/* the outer color of dropdown */
+.chosen-container-single .chosen-single span {
+    display: block;
+    overflow: hidden;
+    margin-right: 26px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: #fff;
+}
+
+/* */
+.chosen-container .chosen-single div b {
+  background-color: #000;
+}
+/* color of front text of box*/
+.chosen-container-single .chosen-single {
+  color: #000 !important;
+  background: #000;
+}
+
+/* Monster page stats */
+.stat-column {
+    text-align: center;
+    width: 16%;
+    color: #fff;
+    padding: 3px 10px !important;
+}
+/* navbar top text colors*/
+.navbar-dark .navbar-nav .nav-link, .navbar-dark .navbar-nav .nav-link-monster {
+    color: #fff;
+}
+
+/* Lower page texts: monster/account/profile */
+.mws-panel-toolbar a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 10px;
+    color: #fff;
+}
+
+/* Navbar text colors */
+.left-bar .nav-item .nav-link, .left-bar .nav-item .nav-link-monster {
+    display: flex;
+    flex: 1;
+    font-weight: 600;
+    color: #fff !important;
+}
+
+/*The navbar color */
+.bg-dark {
+  --bs-bg-opacity: 1;
+  background-color: #000 !important;
+}
+
+/* Imgs on trade chat */
+ul#mws-gallery li {
+    float: left;
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+    margin: 4px;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid #fff;
+    background: black;
+}
+
+/* The search bar */
+
+input.menu-search {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: #000;
+}
+
+/* The chatbox upper section*/
+.mws-panel-header {
+  padding: 5px 10px;
+  background-color: #000;
+  color: #fff;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-family: "Rimouski SB";
+}
+/* The chat Pings*/
+.chat-notice {
+  font-size: 12px;
+  background-color: #fff; /*notification bar*/
+  color: #000; /*text color in notification bar*/
+  min-width: 30px;
+  text-align: center;
+  margin-left: 20px;
+}
+/* The chat channels (dev coded each seperately)*/
+.chat-channels {
+  background-color: #000;
+  color: #fff;
+  font-size: 14px;
+  padding-bottom: 5px;
+  margin-bottom: 0px;
+}
+.chat-contents {
+  background-color: #000; /* active chatbar color */
+  color: #fff; /*active chatbar heading color */
+  font-size: 14px;
+}
+/* The  chatbox heading seperator (didnt need any changes)*/
+.chat-heading {
+  font-weight: bold;
+  font-family: "Rimouski SB";
+  padding: 4px 10px;
+  border-bottom: 1px solid #000;
+}
+/* The notifications*/
+.swal2-icon.swal2-success [class^=swal2-success-line] {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  height: 0.3125em;
+  border-radius: 0.125em;
+  background-color: #fff; /* tick color: should be green*/
+}
+
+.swal2-timer-progress-bar {
+  width: 100%;
+  height: 0.25em;
+  background: #fff; /*color of progress line*/
+}
+
+.swal2-popup.swal2-toast .swal2-title {
+    margin: 0.5em 1em;
+    padding: 0;
+    font-size: 1em;
+    text-align: initial;
+    color: #fff;
+}
+.swal2-popup.swal2-toast .swal2-html-container {
+    margin: 0.5em 1em;
+    padding: 0;
+    font-size: 1em;
+    color: #fff;
+    text-align: initial;
+}
+.swal2-popup {
+  background-color: #000 !important;
+}
+
+/* the background img */
+body {
+  background-image: url("https://i.imgur.com/aBZ2X1E.png");
+  background-repeat: repeat;
+  background-size: 48px;
+}
+/*The behind of gameframe & applied to other pages*/
+.mws-panel-body {
+  padding: 5px 10px;
+  border-bottom: 1px solid #333;
+  border-left: 1px solid #333;
+  border-right: 1px solid #333;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #000; /* the color to give */
+}
+
+/* the header of userprofile & trade & friendpage */
+.mws-panel-toolbar ul {
+    list-style: none;
+    padding-left: 1px;
+    background-color: #000;
+    margin-bottom: 0px;
+}
+/* the header of trades & info stuff */
+.mws-form-message.info {
+    background-color: #000;
+    border: 1px solid #000; /* no need to change outline */
+}
+/*The inner component of trade listings*/
+.trade-component {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #000;
+}
+/* Change of red button on PL - trade/reset & other places */
+.mws-button.red {
+    background-color: #000;
+    color: #eee;
+    border: 1px solid #000;
+}
+
+/*Change of blue button on PL - trade/explore/team & other places */
+.mws-button.green {
+    background-color: #282a36;
+    color: #eee;
+    border: 1px solid #000;
+}
+.mws-button.blue {
+    background-color: #282a36;
+    color: #eee;
+    border: 1px solid #282a36;
+}
+
+
+/*----------------------------------------------------------------------------------------------------*/
+
+/* Add custom png as background with card & floating effect on home */
+.mws-report-container {
+  margin-bottom: 25px;
+}
+
+.mws-report-container .mws-report {
+  border-radius: 5px;
+  margin: 10px 20px;
+  padding: 0px;
+  color: #fff;
+  text-decoration: none;
+  background-color: #000;
+  background-image: url('path/to/image.jpg');
+  background-size: cover;
+  background-position: center;
+  animation: floating 3s ease-in-out infinite;
+}
+
+.mws-report-container .mws-report:hover {
+  animation: none;
+}
+
+.mws-report-container .mws-report .mws-report-icon {
+  width: 68px;
+  height: 100%;
+  float: left;
+  display: block;
+  background-position: center center;
+  color: #333 !important;
+  text-align: center;
+  padding: 20px 0px;
+}
+
+.mws-report-container .mws-report .mws-report-icon i {
+  font-size: 28px;
+}
+
+.mws-report-container .mws-report .mws-report-content {
+  margin-left: 69px;
+  display: block;
+  padding: 8px 10px;
+}
+
+.mws-report-container .mws-report span.mws-report-content {
+  padding: 15px 10px;
+  font-size: 21px;
+}
+
+@keyframes floating {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-10px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+
+/* Major change for drop down on monster page(select) - replaces the @group stuff in base.css: */
+/* @group Base */
+
+/* Add some color to the chosen container */
+.chosen-container {
+position: relative;
+display: inline-block;
+vertical-align: middle;
+font-size: 13px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+color: #000;
+background-color: #000;
+border: 1px solid #ddd;
+border-radius: 4px;
+transition: all 0.3s ease;
+}
+
+/* Update the box model */
+.chosen-container * {
+box-sizing: border-box;
+}
+
+/* Add some animation to the dropdown */
+.chosen-container .chosen-drop {
+position: absolute;
+top: 100%;
+z-index: 1010;
+width: 100%;
+border: 1px solid #ddd;
+border-top: 0;
+background: #000;
+box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
+clip: rect(0, 0, 0, 0);
+-webkit-clip-path: inset(100% 100%);
+clip-path: inset(100% 100%);
+opacity: 0;
+transform: translateY(-10px);
+transition: all 0.3s ease;
+}
+
+/* Add some animation to the dropdown when it's active */
+.chosen-container.chosen-with-drop .chosen-drop {
+clip: auto;
+-webkit-clip-path: none;
+clip-path: none;
+opacity: 1;
+transform: translateY(0);
+}
+
+/* Add some animation to the search choice and group name */
+.chosen-container .search-choice .group-name, .chosen-container .chosen-single .group-name {
+margin-right: 4px;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+font-weight: normal;
+color: #000;
+transition: all 0.3s ease;
+}
+
+/* Add some color to the group name */
+.chosen-container .search-choice .group-name:before, .chosen-container .chosen-single .group-name:before {
+content: "";
+display: inline-block;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+margin-right: 2px;
+}
+
+/* Add some color to the group name based on the group */
+.chosen-container .search-choice .group-name:before {
+background-color: #f0ad4e;
+}
+
+.chosen-container .chosen-single .group-name:before {
+background-color: #5cb85c;
+}
+
+/* Add some animation to the group name when it's active */
+.chosen-container .search-choice .group-name:hover, .chosen-container .chosen-single .group-name:hover {
+color: #333;
+}
+
+/* Add some animation to the group name when it's active */
+.chosen-container .search-choice .group-name:after, .chosen-container .chosen-single .group-name:after {
+content: ":";
+padding-left: 2px;
+vertical-align: top;
+opacity: 0;
+transition: all 0.3s ease;
+}
+
+/* Add some animation to the group name when it's active */
+.chosen-container .search-choice .group-name:hover:after, .chosen-container .chosen-single .group-name:hover:after {
+opacity: 1;
+}
+
+/* Add some animation to the link */
+.chosen-container a {
+cursor: pointer;
+color: #337ab7;
+transition: color 0.3s ease;
+}
+
+/* Add some animation to the link when it's active */
+.chosen-container a:hover {
+color: #23527c;
+}
+
+/* @end */
+
+/* @group Results */
+
+/* Add some animation to the results list */
+.chosen-container .chosen-results {
+color: #444;
+position: relative;
+overflow-x: hidden;
+overflow-y: auto;
+margin: 0 4px 4px 0;
+padding: 0 0 0 4px;
+max-height: 240px;
+-webkit-overflow-scrolling: touch;
+transition: max-height 0.3s ease;
+}
+
+/* Add some animation to the list items */
+.chosen-container .chosen-results li {
+display: none;
+margin: 0;
+padding: 5px 6px;
+list-style: none;
+line-height: 15px;
+word-wrap: break-word;
+-webkit-touch-callout: none;
+transition: all 0.3s ease;
+}
+
+/* Add some animation to the active result */
+.chosen-container .chosen-results li.active-result {
+display: list-item;
+cursor: pointer;
+background-color: #000;
+}
+
+/* Add some animation to the disabled result */
+.chosen-container .chosen-results li.disabled-result {
+display: list-item;
+color: #ccc;
+cursor: default;
+background-color: #f7f7f7;
+}
+
+/* Add some animation to the highlighted result */
+.chosen-container .chosen-results li.highlighted {
+background-color: #fff;
+background-image: linear-gradient(#fff 20%, #fff 90%);
+color: #000;
+}
+
+/* Add some animation to the no result */
+.chosen-container .chosen-results li.no-results {
+color: #000;
+display: list-item;
+background: #f4f4f4;
+}
+
+/* Add some animation to the group result */
+.chosen-container .chosen-results li.group-result {
+display: list-item;
+font-weight: bold;
+cursor: default;
+}
+
+/* Add some animation to the group option */
+.chosen-container .chosen-results li.group-option {
+padding-left: 15px;
+}
+
+/* Add some animation to the search result highlight */
+.chosen-container .chosen-results li em {
+font-style: normal;
+text-decoration: underline;
+font-weight: bold;
+color: #23527c;
+}
+
+/* @end */
+
+/* @group Multi Chosen */
+/* Multi Chosen */
+.chosen-container-multi .chosen-choices {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0 5px;
+  width: 100%;
+  height: auto;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  background-image: linear-gradient(#eee 1%, #fff 15%);
+  cursor: text;
+}
+
+.chosen-container-multi .chosen-choices li {
+  float: left;
+  list-style: none;
+}
+
+.chosen-container-multi .chosen-choices li.search-field {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+  margin: 1px 0;
+  padding: 0;
+  height: 25px;
+  outline: 0;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none;
+  color: #999;
+  font-size: 100%;
+  font-family: sans-serif;
+  line-height: normal;
+  border-radius: 0;
+  width: 25px;
+}
+
+.chosen-container-multi .chosen-choices li.search-choice {
+  position: relative;
+  margin: 3px 5px 3px 0;
+  padding: 3px 20px 3px 5px;
+  border: 1px solid #aaa;
+  max-width: 100%;
+  border-radius: 3px;
+  background-color: #eeeeee;
+  background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);
+  background-size: 100% 19px;
+  background-repeat: repeat-x;
+  background-clip: padding-box;
+  box-shadow: 0 0 2px #fff inset, 0 1px 0 rgba(0, 0, 0, 0.05);
+  color: #333;
+  line-height: 13px;
+  cursor: default;
+}
+
+.chosen-container-multi .chosen-choices li.search-choice span {
+  word-wrap: break-word;
+}
+
+.chosen-container-multi .chosen-choices li.search-choice .search-choice-close {
+  position: absolute;
+  top: 4px;
+  right: 3px;
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: url("chosen-sprite.png") -42px 1px no-repeat;
+  font-size: 1px;
+}
+
+.chosen-container-multi .chosen-choices li.search-choice .search-choice-close:hover {
+  background-position: -42px -10px;
+}
+
+.chosen-container-multi .chosen-choices li.search-choice-disabled {
+  padding-right: 5px;
+  border: 1px solid #ccc;
+  background-color: #e4e4e4;
+  background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eee 100%);
+  color: #666;
+}
+
+.chosen-container-multi .chosen-choices li.search-choice-focus {
+  background: #d4d4d4;
+}
+
+.chosen-container-multi .chosen-choices li.search-choice-focus .search-choice-close {
+  background-position: -42px -10px;
+}
+
+.chosen-container-multi .chosen-results {
+  margin: 0;
+  padding: 0;
+}
+
+/* @end */
+
+/* @group Active */
+.chosen-container-active .chosen-single {
+  border: 1px solid #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single {
+  border: 1px solid #aaa;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background-image: linear-gradient(#eee 20%, #fff 80%);
+  box-shadow: 0 1px 0 #fff inset;
+  transition: border-color 0.2s ease-in-out, border-bottom-right-radius 0.2s ease-in-out, border-bottom-left-radius 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single div {
+  border-left: none;
+  background: transparent;
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single div b {
+  background-position: -18px 2px;
+}
+
+.chosen-container-active .chosen-choices {
+  border: 1px solid #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.chosen-container-active .chosen-choices li.search-field input[type="text"] {
+  color: #222 !important;
+}
+
+/* Hover */
+.chosen-container:hover .chosen-single {
+  border-color: #eee;
+}
+
+.chosen-container:hover.chosen-with-drop .chosen-single {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  box-shadow: 0 1px 0 #fff inset;
+}
+
+.chosen-container:hover .chosen-choices {
+  border-color: #eee;
+}
+
+/* Focus */
+.chosen-container-active:focus .chosen-single {
+  border-color: #5897fb;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chosen-container-active.chosen-with-drop:focus .chosen-single {
+  border-color: #aaa;
+  box-shadow: 0 1px 0 #fff inset, 0 1px 8px rgba(0, 0, 0, 0.2);
+}
+
+.chosen-container-active:focus .chosen-choices {
+  border-color: #5897fb;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chosen-container-active .chosen-choices li.search-field input[type="text"]:focus {
+  outline: none;
+}
+.chosen-disabled {
+opacity: 0.5;
+cursor: default;
+}
+
+.chosen-disabled .chosen-single {
+cursor: default;
+}
+
+.chosen-disabled .chosen-choices li.search-field input[type="text"] {
+cursor: default;
+}
+
+.chosen-disabled .chosen-choices li.search-choice .search-choice-close {
+display: none !important;
+}
+
+.chosen-disabled .chosen-choices li.search-choice {
+padding-right: 5px;
+}
+
+.chosen-disabled .chosen-choices li.search-choice:before {
+content: '';
+position: absolute;
+top: 50%;
+right: 0;
+transform: translateY(-50%);
+border-left: 5px solid #ddd;
+border-top: 5px solid transparent;
+border-bottom: 5px solid transparent;
+width: 0;
+height: 0;
+}
+
+.chosen-disabled .chosen-choices li.search-choice .search-choice-close:before {
+content: '';
+position: absolute;
+top: 50%;
+right: 5px;
+transform: translateY(-50%);
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background-color: #ddd;
+transition: all 0.2s ease-in-out;
+}
+
+.chosen-disabled .chosen-choices li.search-choice .search-choice-close:hover:before {
+background-color: #ccc;
+}
+/* @end */
+
+/* @group Disabled Support */
+.chosen-disabled {
+  opacity: 0.5 !important;
+  cursor: default;
+}
+
+.chosen-disabled .chosen-single {
+  cursor: default;
+}
+
+.chosen-disabled .chosen-choices .search-choice .search-choice-close {
+  cursor: default;
+}
+
+/* @end */
